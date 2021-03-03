@@ -85,11 +85,11 @@ namespace cppcoro
 		{
 			struct promise_type
 			{
-				std::experimental::suspend_never initial_suspend() { return {}; }
-				std::experimental::suspend_never final_suspend() { return {}; }
-				void unhandled_exception() { std::terminate(); }
-				oneway_task get_return_object() { return {}; }
-				void return_void() {}
+				std::experimental::suspend_never initial_suspend() noexcept { return {}; }
+				std::experimental::suspend_never final_suspend() noexcept { return {}; }
+				void unhandled_exception() noexcept { std::terminate(); }
+				oneway_task get_return_object() noexcept { return {}; }
+				void return_void() noexcept {}
 			};
 		};
 

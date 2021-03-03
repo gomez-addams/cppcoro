@@ -28,7 +28,7 @@ namespace cppcoro
 			using reference_type = std::conditional_t<std::is_reference_v<T>, T, T&>;
 			using pointer_type = value_type*;
 
-			generator_promise() = default;
+			generator_promise() noexcept = default;
 
 			generator<T> get_return_object() noexcept;
 
@@ -50,12 +50,12 @@ namespace cppcoro
 				return {};
 			}
 
-			void unhandled_exception()
+			void unhandled_exception() noexcept
 			{
 				m_exception = std::current_exception();
 			}
 
-			void return_void()
+			void return_void() noexcept
 			{
 			}
 
