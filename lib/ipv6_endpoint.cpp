@@ -11,17 +11,17 @@ namespace
 {
 	namespace local
 	{
-		bool is_digit(char c)
+		constexpr bool is_digit(char c)
 		{
 			return c >= '0' && c <= '9';
 		}
 
-		std::uint8_t digit_value(char c)
+		constexpr std::uint8_t digit_value(char c)
 		{
 			return static_cast<std::uint8_t>(c - '0');
 		}
 
-		std::optional<std::uint16_t> parse_port(std::string_view string)
+		constexpr std::optional<std::uint16_t> parse_port(std::string_view string)
 		{
 			if (string.empty()) return std::nullopt;
 
