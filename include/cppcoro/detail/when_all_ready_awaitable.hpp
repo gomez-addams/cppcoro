@@ -7,7 +7,18 @@
 
 #include <cppcoro/detail/when_all_counter.hpp>
 
+#if __has_include(<coroutine>)
+#include <coroutine>
+#ifndef SP_DEFINED_EXPERIMENTAL_COROUTINE_HANDLE
+#define SP_DEFINED_EXPERIMENTAL_COROUTINE_HANDLE
+namespace std::experimental {
+template <typename T = void>
+using coroutine_handle = std::coroutine_handle<T>;
+}
+#endif
+#elif __has_include(<experimental/coroutine>)
 #include <experimental/coroutine>
+#endif
 #include <tuple>
 
 namespace cppcoro
