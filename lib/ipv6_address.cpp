@@ -22,7 +22,7 @@ namespace
 			return static_cast<std::uint8_t>(c - '0');
 		}
 
-		std::optional<std::uint8_t> try_parse_hex_digit(char c)
+		constexpr std::optional<std::uint8_t> try_parse_hex_digit(char c)
 		{
 			if (c >= '0' && c <= '9')
 			{
@@ -40,7 +40,7 @@ namespace
 			return std::nullopt;
 		}
 
-		char hex_char(std::uint8_t value)
+		constexpr char hex_char(std::uint8_t value)
 		{
 			return value < 10 ?
 				static_cast<char>('0' + value) :
